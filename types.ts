@@ -34,3 +34,7 @@ export interface OutfitSuggestion {
 }
 
 export type ViewState = 'wardrobe' | 'add' | 'stylist';
+
+export interface User {
+  username: string;
+}
