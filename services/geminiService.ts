@@ -3,7 +3,8 @@ import { ClothingItem, Category, Season, OutfitSuggestion } from "../types";
 
 // Initialize Gemini Client
 // NOTE: process.env.API_KEY is automatically provided in this environment.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Fix: Ensure apiKey is treated as a string to prevent TypeScript build errors.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
 
 // ------------------------------------------
 // 1. Image Analysis (Auto-tagging)
