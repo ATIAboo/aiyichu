@@ -3,11 +3,14 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, (process as any).cwd(), '');
+  // Cloudflare Pages exposes environment variables during build time.
+  // Vite loads variables prefixed with VITE_ by default.
+  // We polyfill process.env.API_KEY so the Gemini SDK works without changes.
+  const env = loadEnv(mode, process.cwd(), '');
+  
   return {
     plugins: [react()],
     define: {
-      // Polyfill process.env for the @google/genai SDK usage pattern
       'process.env.API_KEY': JSON.stringify(env.VITE_API_KEY || process.env.API_KEY),
     },
     build: {

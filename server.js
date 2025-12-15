@@ -1,21 +1,3 @@
-import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const app = express();
-const port = process.env.PORT || 9000;
-
-// Serve static files from the build directory
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Handle React routing, return all requests to React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// 此文件在 Cloudflare Pages 部署中不再需要。
+// Cloudflare Pages 会直接托管 "dist" 目录中的静态文件。
+// 您可以安全地删除此文件。
