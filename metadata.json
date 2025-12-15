@@ -1,0 +1,7 @@
+{
+  "name": "智能衣橱 AI",
+  "description": "一个由 AI 驱动的衣橱助手，帮助您整理衣物，并利用 Gemini Vision 根据场合和天气提供穿搭建议及试穿效果预览。",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
